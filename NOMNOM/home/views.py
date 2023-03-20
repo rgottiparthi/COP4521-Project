@@ -4,6 +4,6 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'home/home.html')
 def restaurants(request):
-        return render(request, 'home/restaurant.html')
+        return render(request, 'home/restaurant.html', {'title': 'Restaurants'})
 def profiles(request):
-    return render(request, 'home/profiles.html')
+    return render(request, 'home/profiles.html', {'title': 'Profiles'})
