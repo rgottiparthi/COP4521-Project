@@ -8,6 +8,9 @@ class Restaurant(models.Model):
     NumRatings = models.IntegerField()
     Description=models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.Name
+
 class Item(models.Model):
     RestaurantID = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=False)
     Name = models.CharField(max_length=100)
