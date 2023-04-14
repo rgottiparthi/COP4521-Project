@@ -1,6 +1,15 @@
 {% extends "home/base.html" %}
 {% block content %}
-    <h2>OUR MISSION:</h2>
-    <p>NomNom intends to be the ultimate database for fast food. The Primary functionality of our application 
-        will be finding information about fast food, like calories, price, and public consensus. </p>
+    {% for restaurant in restaurants %}
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ restaurant.Name }}</a>
+                <small class="text-muted">Rated: {{ restaurant.Rating }}/5 by {{ restaurant.NumRatings }} users.</small>
+              </div>
+              <h2><a class="article-title" href="#">{{ restaurant.Name }}</a></h2>
+              <p class="article-content">{{ restaurant.Description }}</p>
+            </div>
+          </article>
+    {% endfor %}
 {% endblock content %}
