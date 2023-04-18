@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Restaurant
 from .models import Item
 from django.utils.decorators import method_decorator
@@ -23,13 +24,33 @@ class PostDetailView(DetailView):
       model = Restaurant
 
 @method_decorator(staff_member_required, name='dispatch')
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
       model = Restaurant
       fields = ['Name', 'Description', 'image']
 
-    #   def form_valid(self, form):
-    #         form.instance.RestaurantID = self.request.user
-    #         return super().form_valid(form)
+@method_decorator(staff_member_required, name='dispatch')
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+      model = Restaurant
+      fields = ['Name', 'Description', 'image']
+
+      # check if superuser (only superuser can update)
+      def test_func(self):
+            restaurant = self.get_object()
+            if self.request.user.is_superuser:
+                  return True
+            return False
+
+@method_decorator(staff_member_required, name='dispatch')
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+      model = Restaurant
+      success_url = '/'
+      
+      # check if superuser (only superuser can update)
+      def test_func(self):
+            restaurant = self.get_object()
+            if self.request.user.is_superuser:
+                  return True
+            return False
 
 def about(request):
         return render(request, 'home/about.html', {'title': 'About'})
