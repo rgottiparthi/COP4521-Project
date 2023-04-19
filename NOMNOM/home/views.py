@@ -19,6 +19,7 @@ class PostListView(ListView):
       template_name = 'home/home.html'
       context_object_name = 'restaurants'
       ordering = ['-Rating']
+      paginate_by = 10
 
 class PostDetailView(DetailView):
       model = Restaurant
