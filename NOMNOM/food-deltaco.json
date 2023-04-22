@@ -1,0 +1,37 @@
+[
+    {
+        "Name":"Del Cheeseburger",
+        "Description":"A 100% beef patty grilled to order, American cheese, two fresh tomato slices, burger sauce, crisp shredded lettuce, and diced onions on a grilled sesame seed bun.",
+        "Price":"2.29",
+        "Calories":"470",
+        "image":"deltaco-cheeseburger"
+    },
+    {
+        "Name":"Bean & Cheese Burrito",
+        "Description":"Slow-cooked beans made from scratch, fresh house-grated cheddar cheese, and zesty red or tangy green sauce, wrapped in a warm flour tortilla.",
+        "Price":"0.89",
+        "Calories":"460",
+        "image":"deltaco-beanandcheeseburrito"
+    },
+    {
+        "Name":"Cheddar Quesadilla",
+        "Description":"Fresh house-grated cheddar cheese and tangy green sauce folded in a flour tortilla and flat-grilled to perfection.",
+        "Price":"2.29",
+        "Calories":"480",
+        "image":"deltaco-cheddarquesadilla"
+    },
+    {
+        "Name":"Queso Loaded Nachos",
+        "Description":"Loaded with choice of seasoned beef, freshly grilled, marinated chicken, freshly grilled carne asada, or Beyond Meat®, fresh house-made tortilla chips, slow-cooked beans made from scratch, and signature creamy Queso Blanco, topped with cool sour cream, fresh diced tomatoes, and sliced jalapeños.",
+        "Price":"4.29",
+        "Calories":"1030",
+        "image":"deltaco-quesoloadednachos"
+    },
+    {
+        "Name":"Snack Taco",
+        "Description":"Seasoned beef, crisp shredded lettuce, fresh house-grated cheddar cheese in a crunchy corn shell or warm flour tortilla.",
+        "Price":"0.69",
+        "Calories":"120",
+        "image":"deltaco-snacktaco"
+    }
+]

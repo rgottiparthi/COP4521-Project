@@ -1,0 +1,37 @@
+[
+    {
+        "Name":"Oreo® Blizzard",
+        "Description":"OREO® cookie pieces blended with creamy DQ® vanilla soft serve to Blizzard® Treat perfection",
+        "Price":"4.69",
+        "Calories":"380",
+        "image":"dairyqueen-oreoblizzard"
+    },
+    {
+        "Name":"Butterfinger® Blizzard",
+        "Description":"Butterfinger® candy pieces blended with creamy DQ® vanilla soft serve to Blizzard® Treat perfection",
+        "Price":"4.69",
+        "Calories":"350",
+        "image":"dairyqueen-butterfingerblizzard"
+    },
+    {
+        "Name":"Reese's® Blizzard",
+        "Description":"Milk chocolate Reese’s® Peanut Butter Cups blended with creamy DQ® soft serve to Blizzard® Treat perfection",
+        "Price":"4.69",
+        "Calories":"360",
+        "image":"dairyqueen-reesesblizzard"
+    },
+    {
+        "Name":"Original Cheeseburger",
+        "Description":"The Original Cheeseburger 1/3 lb double Signature Stackburger features two 100% seasoned real beef patties, topped with perfectly melted Sharp American**, pickles, ketchup and mustard served on a soft and toasted bun.",
+        "Price":"2.19",
+        "Calories":"620",
+        "image":"dairyqueen-cheeseburger"
+    },
+    {
+        "Name":"Backyard Bacon Ranch Burger",
+        "Description":"Backyard Bacon Ranch Signature Stackburger™: 1/3 lb. double featuring 100% seasoned real beef patties, topped with House-Made Hidden Valley Ranch dressing, Honey BBQ sauce, crispy golden onion rings, applewood smoked bacon, two slices of perfectly melted White Cheddar served on a soft and toasted bun.",
+        "Price":"4.89",
+        "Calories":"820",
+        "image":"dairyqueen-backyardbaconranch"
+    }
+]

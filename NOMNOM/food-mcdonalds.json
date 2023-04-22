@@ -1,0 +1,37 @@
+[
+    {
+        "Name":"Big Mac",
+        "Description":"The McDonald's Big Mac® is a 100% beef burger with a taste like no other. The mouthwatering perfection starts with two 100% pure all beef patties and Big Mac® sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion, and a slice of American cheese.",
+        "Price":"3.99",
+        "Calories":"590",
+        "image":"mcdonalds-bigmac"
+    },
+    {
+        "Name":"McChicken",
+        "Description":"Savor the satisfying crunch of our juicy chicken patty, topped with shredded lettuce and just the right amount of creamy mayonnaise, all served on a perfectly toasted bun.",
+        "Price":"1.00",
+        "Calories":"400",
+        "image":"mcdonalds-mcchicken"
+    },
+    {
+        "Name":"10pc Chicken McNuggets",
+        "Description":"Tender, juicy Chicken McNuggets® made with all white meat chicken and no artificial colors, flavors or preservatives.",
+        "Price":"4.49",
+        "Calories":"410",
+        "image":"mcdonalds-10pcnuggets"
+    },
+    {
+        "Name":"Fries",
+        "Description":"World Famous Fries® made with premium potatoes such as the Russet Burbank and the Shepody.",
+        "Price":"1.89",
+        "Calories":"480",
+        "image":"mcdonalds-fries"
+    },
+    {
+        "Name":"Chocolate Shake",
+        "Description":"Chocolate shake made with delicious soft serve, chocolate syrup and finished off with a creamy whipped topping.",
+        "Price":"2.19",
+        "Calories":"800",
+        "image":"mcdonalds-chocolateshake"
+    }
+]

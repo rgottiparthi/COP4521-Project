@@ -1,0 +1,37 @@
+[
+    {
+        "Name":"Classic Chicken Sandwich Combo",
+        "Description":"A juicy chicken breast fillet marinated in Popeyes seasonings, hand battered and breaded in our buttermilk system, fried until golden brown. Sandwiched between two buttery toasted brioche buns, topped with our barrel cured pickle slices and classic mayo.",
+        "Price":"7.69",
+        "Calories":"700",
+        "image":"popeyes-chickensandwich"
+    },
+    {
+        "Name":"12pc Chicken Nuggets",
+        "Description":"12 mild juicy chicken breast pieces made with white meat and hand battered and breaded in our buttermilk coating.",
+        "Price":"8.39",
+        "Calories":"570",
+        "image":"popeyes-nuggets"
+    },
+    {
+        "Name":"Cajun Fries",
+        "Description":"Crispy seasoned Cajun fries.",
+        "Price":"3.99",
+        "Calories":"270",
+        "image":"popeyes-cajunfries"
+    },
+    {
+        "Name":"Classic Flounder Fish Sandwich Combo",
+        "Description":"Made with premium Flounder, marinated in authentic Louisiana herbs & spices, dusted in our southern crispy coating and fried up golden brown. Served atop a warm buttery brioche bun with barrel cured pickels and tartar sauce.",
+        "Price":"7.69",
+        "Calories":"680",
+        "image":"popeyes-floundersandwich"
+    },
+    {
+        "Name":"Cinnamon Apple Pie",
+        "Description":"Warm, crispy crust on the outside, hot cinnamon apple goodness on the inside",
+        "Price":"1.29",
+        "Calories":"240",
+        "image":"popeyes-cinnamonapplepie"
+    }
+]

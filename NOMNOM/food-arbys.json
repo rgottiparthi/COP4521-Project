@@ -1,0 +1,37 @@
+[
+    {
+        "Name":"Smokehouse Brisket",
+        "Description":"13-Hour smoked brisket with crispy onions, natural cheddar cheese, and smoky BBQ sauce on a toasted brioche bun.",
+        "Price":"5.59",
+        "Calories":"560",
+        "image":"arbys-smokehousebrisket"
+    },
+    {
+        "Name":"Curly Fries",
+        "Description":"Potatoes. The meats of the field. Sliced up curly and fried to perfection.",
+        "Price":"1.19",
+        "Calories":"250",
+        "image":"arbys-curlyfries"
+    },
+    {
+        "Name":"Jalapeño Bites",
+        "Description":"Spicy jalapeño halves filled with melted cream cheese.",
+        "Price":"2.99",
+        "Calories":"290",
+        "image":"arbys-jalapenobites"
+    },
+    {
+        "Name":"Beef N' Cheddar",
+        "Description":"Famous roast beef, topped with Cheddar cheese sauce and zesty Red Ranch and served on a toasted onion roll. ",
+        "Price":"3.99",
+        "Calories":"450",
+        "image":"arbys-beefandcheddar"
+    },
+    {
+        "Name":"Orange Cream Shake",
+        "Description":"Arby's delicious orange cream flavored shake that is perfect for the summer season.",
+        "Price":"1.89",
+        "Calories":"550",
+        "image":"arbys-orangecreamshake"
+    }
+]

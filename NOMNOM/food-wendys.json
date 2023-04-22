@@ -1,0 +1,37 @@
+[
+    {
+        "Name":"Baconator",
+        "Description":"A half-pound of fresh beef, American cheese, 6 pieces of crispy Applewood smoked bacon, ketchup, and mayo. Carnivores rejoice!",
+        "Price":"6.09",
+        "Calories":"960",
+        "image":"wendys-baconator"
+    },
+    {
+        "Name":"10pc Crispy Chicken Nuggets",
+        "Description":"100% white-meat chicken breaded to crispy perfection and served with your choice of 6 dipping sauces including Buttermilk Ranch, BBQ, Sweet & Sour, Honey Mustard, or Ghost Pepper Ranch.",
+        "Price":"2.89",
+        "Calories":"450",
+        "image":"wendys-10pcnuggets"
+    },
+    {
+        "Name":"Grilled Chicken Wrap",
+        "Description":"Juicy, herb-marinated grilled chicken breast, shredded cheddar cheese and crispy romaine drizzled with a creamy ranch sauce and all wrapped up in a warm tortilla.",
+        "Price":"3.79",
+        "Calories":"420",
+        "image":"wendys-chickenwrap"
+    },
+    {
+        "Name":"Cheese Fries",
+        "Description":"Wendy's natural cut fries, smothered in a creamy cheese sauce.",
+        "Price":"2.19",
+        "Calories":"470",
+        "image":"wendys-cheesefries"
+    },
+    {
+        "Name":"Vanilla Frosty",
+        "Description":"The vanilla version of Wendy's signature frozen dessert.",
+        "Price":"2.29",
+        "Calories":"340",
+        "image":"wendys-frosty"
+    }
+]
