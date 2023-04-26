@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "Big Mac",
+        "image": "bigmac.jpeg",
+        "Price": "4.89",
+        "Calories": "550",
+        "Description": "Not Healthy",
+        "RestaurantID": "McDonald's"
+    },
+    {
+        "Name": " McNuggets",
+        "image": "mcnuggets.jpeg",
+        "Price": "2.00",
+        "Calories": "250",
+        "Description": "Not Healthy",
+        "RestaurantID": "McDonald's"
+    },
+    {
+        "Name": "Filet O Fish",
+        "image": "filetofish.jpeg",
+        "Price": "4.59",
+        "Calories": "380",
+        "Description": "Not Healthy",
+        "RestaurantID": "McDonald's"
+    }
+]

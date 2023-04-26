@@ -7,6 +7,11 @@
               <div class="article-metadata">
                 <a class="mr-2" href="#">{{ restaurant.Name }}</a>
                 <small class="text-muted">Rated: {{ restaurant.Rating }}/5 by {{ restaurant.NumRatings }} users.</small>
+                {% if user.is_authenticated %}
+                <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Rate</a>
+                </div>
+                {% endif %}
               </div>
               <h2><a class="article-title" href="{% url 'restaurant-detail' restaurant.RestaurantID %}">{{ restaurant.Name }}</a></h2>
               <p class="article-content">{{ restaurant.Description }}</p>
