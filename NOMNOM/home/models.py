@@ -44,3 +44,13 @@ class Item(models.Model):
             output_size = (300,300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+class RestaurantRating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    restaurant =  models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+
+class ItemRating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    item =  models.ForeignKey(Item, on_delete=models.CASCADE)

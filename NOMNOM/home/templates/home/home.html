@@ -9,7 +9,7 @@
                 <small class="text-muted">Rated: {{ restaurant.Rating }}/5 by {{ restaurant.NumRatings }} users.</small>
                 {% if user.is_authenticated %}
                 <div>
-                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Rate</a>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'rate-restaurant' restaurant.RestaurantID %}">Rate</a>
                 </div>
                 {% endif %}
               </div>
