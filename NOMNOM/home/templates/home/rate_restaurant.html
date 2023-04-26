@@ -7,7 +7,7 @@
     <div class="media-body">
       <div class="article-metadata">
         <a class="mr-2" href="#">{{ restaurant.Name }}</a>
-        <small class="text-muted">Rated: {{ restaurant.Rating }}/5 by {{ restaurant.NumRatings }} users.</small>
+        <small class="text-muted">Rated: {{ restaurant.Rating|floatformat:2 }}/5 by {{ restaurant.NumRatings }} users.</small>
       </div>
       <p class="article-content">{{ restaurant.Description }}</p>
     </div>
