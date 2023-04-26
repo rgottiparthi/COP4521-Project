@@ -14,8 +14,24 @@
                 
             {% endif %}
             </div>
-            <h2 class="article-title">{{ object.Name }}</h2>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">View Menu</a>
+            <h2 class="article-title">{{ object.Name }} Menu</h2>
         </div>
         </article>
+        {% for item in object.item_set.all %}
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" src="{{ item.image.url }}" alt="{{ item.Name }}.jpg">
+                    <div class="card-body">
+                      <h3 class="card-text">{{ item.Name }}</h3>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            {% if user.is_authenticated %}
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Rate</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Add to List</button>
+                            {% endif %}
+                        </div>
+                        <small class="text-muted">Rated {{ item.Rating }} by {{ item.NumRatings }} people.</small>
+                      </div>
+                    </div>
+                  </div>
+        {% endfor %}
 {% endblock content %}

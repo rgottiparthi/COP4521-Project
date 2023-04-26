@@ -27,7 +27,7 @@ class Restaurant(models.Model):
         return reverse('restaurant-detail', kwargs={'pk': self.pk})
 
 class Item(models.Model):
-    RestaurantID = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=False)
+    RestaurantID = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=False, to_field='RestaurantID')
     Name = models.CharField(max_length=100)
     Rating = models.FloatField(default=0)
     NumRatings = models.IntegerField(default=0)

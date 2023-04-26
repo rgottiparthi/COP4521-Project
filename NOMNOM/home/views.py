@@ -2,8 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Restaurant
-from .models import Item
+from .models import Restaurant, Item
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
