@@ -56,15 +56,21 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
                   return True
             return False
 
-@login_required
 def rate_restaurant(request, pk):
     restaurant = get_object_or_404(Restaurant, pk=pk)
+    user = request.user
     if request.method == 'POST':
         form = RestaurantRatingForm(request.POST)
         if form.is_valid():
             rating = form.cleaned_data['rating']
-            rating_obj = RestaurantRating(user=request.user, rating=rating, restaurant=restaurant)
-            rating_obj.save()
+            # Check if user has already rated this restaurant
+            existing_rating = RestaurantRating.objects.filter(user=user, restaurant=restaurant).first()
+            if existing_rating:
+                existing_rating.rating = rating
+                existing_rating.save()
+            else:
+                rating_obj = RestaurantRating(user=user, rating=rating, restaurant=restaurant)
+                rating_obj.save()
             # Update restaurant rating and number of ratings
             restaurant_ratings = RestaurantRating.objects.filter(restaurant=restaurant)
             num_ratings = len(restaurant_ratings)
@@ -75,7 +81,8 @@ def rate_restaurant(request, pk):
             return redirect('restaurant-detail', pk=restaurant.pk)
     else:
         form = RestaurantRatingForm()
-    return render(request, 'home/rate_restaurant.html', {'form': form})
+    context = {'form': form, 'restaurant': restaurant}
+    return render(request, 'home/rate_restaurant.html', context)
 
 
 def about(request):

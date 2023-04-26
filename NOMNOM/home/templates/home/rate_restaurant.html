@@ -1,7 +1,17 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-  <h2>Rate Restaurant</h2>
+  <h2>Rate  {{ restaurant.Name }}</h2>
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ restaurant.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ restaurant.Name }}</a>
+        <small class="text-muted">Rated: {{ restaurant.Rating }}/5 by {{ restaurant.NumRatings }} users.</small>
+      </div>
+      <p class="article-content">{{ restaurant.Description }}</p>
+    </div>
+  </article>
   <form method="post">
     {% csrf_token %}
     <div class="form-group">
