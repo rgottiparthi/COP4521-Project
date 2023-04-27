@@ -60,3 +60,7 @@ class ItemRating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField()
     item =  models.ForeignKey(Item, on_delete=models.CASCADE)
+
+class FavoriteItems(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    item =  models.ForeignKey(Item, on_delete=models.CASCADE)

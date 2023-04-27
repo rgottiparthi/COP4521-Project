@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', PostListView.as_view(), name ='home'),
+    path('add-to-favorites/<int:item_id>/', views.add_to_favorites, name='add-to-favorites'),
     path('favorites/', favorites, name = 'favorites'),
     path('top_menu_items', PostListItems.as_view(), name ='top-menu-items'),
     path('restaurant/<int:pk>/', PostDetailView.as_view(), name ='restaurant-detail'),
