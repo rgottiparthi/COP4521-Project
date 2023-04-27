@@ -24,6 +24,13 @@ class PostListView(ListView):
       ordering = ['-Rating']
       paginate_by = 10
 
+class PostListItems(ListView):
+      model = Item
+      template_name = 'home/menu_items.html'
+      context_object_name = 'items'
+      ordering = ['-Rating']
+      paginate_by = 10
+
 class PostDetailView(DetailView):
       model = Restaurant
 
@@ -31,6 +38,11 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
       model = Restaurant
       fields = ['Name', 'Description', 'image']
+
+@method_decorator(staff_member_required, name='dispatch')
+class PostCreateItemView(LoginRequiredMixin, CreateView):
+      model = Item
+      fields = ['RestaurantID','Name', 'Description', 'Price', 'Calories', 'image']
 
 @method_decorator(staff_member_required, name='dispatch')
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

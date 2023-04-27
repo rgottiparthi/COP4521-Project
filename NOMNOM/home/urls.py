@@ -1,14 +1,18 @@
 from django.urls import path
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, rate_restaurant
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, rate_restaurant, PostCreateItemView, PostListItems
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('', PostListView.as_view(), name ='home'),
+    path('top_menu_items', PostListItems.as_view(), name ='top-menu-items'),
     path('restaurant/<int:pk>/', PostDetailView.as_view(), name ='restaurant-detail'),
     path('restaurant/new/', PostCreateView.as_view(), name ='restaurant-create'),
+    path('restaurant/new-item', PostCreateItemView.as_view(), name ='item-create'),
     path('restaurant/<int:pk>/update', PostUpdateView.as_view(), name ='restaurant-update'),
     path('restaurant/<int:pk>/delete', PostDeleteView.as_view(), name ='restaurant-delete'),
     path('restaurant/<int:pk>/rate/', rate_restaurant, name='rate-restaurant'),
     path('about/', views.about, name='home-about'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

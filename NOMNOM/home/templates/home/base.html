@@ -36,6 +36,7 @@
                 {% if user.is_authenticated %}
                   {% if user.is_superuser %}
                     <a class="nav-item nav-link" href="{% url 'restaurant-create' %}">New Restaurant</a>
+                    <a class="nav-item nav-link" href="{% url 'item-create' %}">New Menu Item</a>
                   {% endif %}
                   <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                   <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
@@ -65,10 +66,8 @@
               <h3>Sorting Sidebar</h3>
               <p class='text-muted'>Sort Restaurants By:
                 <ul class="list-group">
-                  <li class="list-group-item list-group-item-light">Top Rated</li>
-                  <li class="list-group-item list-group-item-light">Price</li>
-                  <li class="list-group-item list-group-item-light">Type</li>
-                  <li class="list-group-item list-group-item-light">Calories</li>
+                  <a href="/" class="list-group-item list-group-item-light text-primary">Top Rated Restaurants</a>
+                  <a href="/top_menu_items" class="list-group-item list-group-item-light text-primary">Top Rated Menu Items</a>
                 </ul>
               </p>
             </div>

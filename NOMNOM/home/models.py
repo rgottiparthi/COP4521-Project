@@ -34,7 +34,10 @@ class Item(models.Model):
     Description=models.CharField(max_length=200)
     Price = models.FloatField()
     Calories = models.IntegerField()
-    image = models.ImageField(default='default.jpg', upload_to='item_pics')
+    image = models.ImageField(default='default.jpg', upload_to='')
+
+    def __str__(self):
+        return self.Name
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -44,6 +47,9 @@ class Item(models.Model):
             output_size = (300,300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+    def get_absolute_url(self):
+        return "/"
 
 class RestaurantRating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
