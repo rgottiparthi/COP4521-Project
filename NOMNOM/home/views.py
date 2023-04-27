@@ -31,6 +31,16 @@ class PostListItems(ListView):
       ordering = ['-Rating']
       paginate_by = 10
 
+class PriceView(ListView):
+    context_object_name = 'items'    
+    template_name = 'home/price_menu_items.html'
+    queryset = Item.objects.filter(Price__gt=5)
+
+class CaloriesView(ListView):
+    context_object_name = 'items'    
+    template_name = 'home/price_menu_items.html'
+    queryset = Item.objects.filter(Calories__gt=500)
+
 class PostDetailView(DetailView):
       model = Restaurant
 
