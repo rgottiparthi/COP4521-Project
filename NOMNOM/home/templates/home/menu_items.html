@@ -25,7 +25,7 @@
                 <div class="btn-group">
                     {% if user.is_authenticated %}
                         <button type="button" class="btn btn-sm btn-outline-secondary">Rate</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Add to List</button>
+                        <a href="{% url 'add-to-favorites' item.pk %}" class="btn btn-sm btn-outline-secondary">Add to Favorites</a>
                     {% endif %}
                 </div>
                 <h6 class="text-muted">Rated {{ item.Rating }} by {{ item.NumRatings }} person(s)</h6>

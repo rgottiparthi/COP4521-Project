@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from .models import Restaurant, RestaurantRating
-from .models import Item, ItemRating
+from .models import Item, ItemRating, FavoriteItems
 from django.utils.decorators import method_decorator
 from .forms import RestaurantRatingForm, ItemRatingForm
 
@@ -108,6 +108,7 @@ def rate_restaurant(request, pk):
     return render(request, 'home/rate_restaurant.html', context)
 
 
+
 from django.urls import reverse
 
 @login_required
@@ -139,6 +140,21 @@ def rate_item(request, pk):
         form = ItemRatingForm()
     context = {'form': form, 'item': item}
     return render(request, 'home/rate_item.html', context)
+
+
+@login_required
+def favorites(request):
+    favorites = FavoriteItems.objects.filter(user=request.user)
+    items = [fav.item for fav in favorites]
+    return render(request, 'home/favorites.html', {'items': items})
+
+@login_required
+def add_to_favorites(request, item_id):
+    item = get_object_or_404(Item, pk=item_id)
+    user = request.user
+    favorite_item = FavoriteItems(user=user, item=item)
+    favorite_item.save()
+    return redirect('favorites')
 
 def about(request):
         return render(request, 'home/about.html', {'title': 'About'})
