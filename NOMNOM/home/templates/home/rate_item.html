@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+  <h2>Rate {{ item.Name }}</h2>
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ item.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="{% url 'restaurant-detail' pk=item.RestaurantID.pk %}">{{ item.RestaurantID.Name }}</a>
+        <small class="text-muted">Rated: {{ item.Rating|floatformat:2 }}/5 by {{ item.NumRatings }} users.</small>
+      </div>
+      <p class="article-content">{{ item.Description }}</p>
+    </div>
+  </article>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <select name="rating" class="form-control">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
