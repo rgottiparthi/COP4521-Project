@@ -140,9 +140,13 @@ def rate_item(request, pk):
         form = ItemRatingForm()
     context = {'form': form, 'item': item}
     return render(request, 'home/rate_item.html', context)
+
+
 @login_required
 def favorites(request):
-      return render(request, 'home/favorites.html')
+    favorites = FavoriteItems.objects.filter(user=request.user)
+    items = [fav.item for fav in favorites]
+    return render(request, 'home/favorites.html', {'items': items})
 
 @login_required
 def add_to_favorites(request, item_id):
@@ -150,7 +154,7 @@ def add_to_favorites(request, item_id):
     user = request.user
     favorite_item = FavoriteItems(user=user, item=item)
     favorite_item.save()
-    return render(request, 'home/favorites.html')
+    return redirect('favorites')
 
 def about(request):
         return render(request, 'home/about.html', {'title': 'About'})
