@@ -8,9 +8,7 @@
                 <a class="mr-2" href="#">{{ restaurant.Name }}</a>
                 <small class="text-muted">Rated: {{ restaurant.Rating|floatformat:2 }}/5 by {{ restaurant.NumRatings }} users.</small>
                 {% if user.is_authenticated %}
-                <div>
-                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'rate-restaurant' restaurant.RestaurantID %}">Rate</a>
-                </div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1 float-right" href="{% url 'rate-restaurant' restaurant.RestaurantID %}">Rate</a>
                 {% endif %}
               </div>
               <h2><a class="article-title" href="{% url 'restaurant-detail' restaurant.RestaurantID %}">{{ restaurant.Name }}</a></h2>
