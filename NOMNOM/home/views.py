@@ -97,6 +97,9 @@ def rate_restaurant(request, pk):
     context = {'form': form, 'restaurant': restaurant}
     return render(request, 'home/rate_restaurant.html', context)
 
+@login_required
+def favorites(request):
+      return render(request, 'home/favorites.html')
 
 from django.urls import reverse
 
