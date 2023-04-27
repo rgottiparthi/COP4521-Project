@@ -37,4 +37,17 @@
         <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
       {% endif %}
     {% endif %}
+    <div class="col-md-4">
+        <div class="content-section">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Filter
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/price_menu_items">Price > $5</a>
+                  <a class="dropdown-item" href="/calories_menu_items">Calories > 500</a>
+                </div>
+              </div>
+        </div>
+    </div>
 {% endblock content %}
