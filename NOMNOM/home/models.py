@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Restaurant(models.Model):
     RestaurantID = models.AutoField(primary_key=True)
-    Name = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100, unique=True)
     Rating = models.FloatField(default=0)
     NumRatings = models.IntegerField(default=0)
     Description=models.CharField(max_length=200)
@@ -28,7 +28,7 @@ class Restaurant(models.Model):
 
 class Item(models.Model):
     RestaurantID = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=False, to_field='RestaurantID')
-    Name = models.CharField(max_length=100)
+    Name = models.CharField(max_length=100, unique=True)
     Rating = models.FloatField(default=0)
     NumRatings = models.IntegerField(default=0)
     Description=models.CharField(max_length=200)
