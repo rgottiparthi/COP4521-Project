@@ -1,15 +1,15 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
-  <h2>Rate  {{ restaurant.Name }}</h2>
+  <h2>Rate {{ item.Name }}</h2>
   <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ restaurant.image.url }}">
+    <img class="rounded-circle article-img" src="{{ item.image.url }}">
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2" href="#">{{ restaurant.Name }}</a>
-        <small class="text-muted">Rated: {{ restaurant.Rating|floatformat:2 }}/5 by {{ restaurant.NumRatings }} users.</small>
+        <a class="mr-2" href="{% url 'restaurant-detail' pk=item.RestaurantID.pk %}">{{ item.RestaurantID.Name }}</a>
+        <small class="text-muted">Rated: {{ item.Rating|floatformat:2 }}/5 by {{ item.NumRatings }} users.</small>
       </div>
-      <p class="article-content">{{ restaurant.Description }}</p>
+      <p class="article-content">{{ item.Description }}</p>
     </div>
   </article>
   <form method="post">

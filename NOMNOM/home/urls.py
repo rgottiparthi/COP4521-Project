@@ -14,5 +14,6 @@ urlpatterns = [
     path('restaurant/<int:pk>/update', PostUpdateView.as_view(), name ='restaurant-update'),
     path('restaurant/<int:pk>/delete', PostDeleteView.as_view(), name ='restaurant-delete'),
     path('restaurant/<int:pk>/rate/', rate_restaurant, name='rate-restaurant'),
+    path('item/<int:pk>/rate/', views.rate_item, name='rate-item'),
     path('about/', views.about, name='home-about'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,9 +5,9 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from .models import Restaurant, RestaurantRating
-from .models import Item
+from .models import Item, ItemRating
 from django.utils.decorators import method_decorator
-from .forms import RestaurantRatingForm
+from .forms import RestaurantRatingForm, ItemRatingForm
 
 # Create your views here.
 
@@ -71,12 +71,19 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 @login_required
 def rate_restaurant(request, pk):
     restaurant = get_object_or_404(Restaurant, pk=pk)
+    user = request.user
     if request.method == 'POST':
         form = RestaurantRatingForm(request.POST)
         if form.is_valid():
             rating = form.cleaned_data['rating']
-            rating_obj = RestaurantRating(user=request.user, rating=rating, restaurant=restaurant)
-            rating_obj.save()
+            # Check if user has already rated this restaurant
+            existing_rating = RestaurantRating.objects.filter(user=user, restaurant=restaurant).first()
+            if existing_rating:
+                existing_rating.rating = rating
+                existing_rating.save()
+            else:
+                rating_obj = RestaurantRating(user=user, rating=rating, restaurant=restaurant)
+                rating_obj.save()
             # Update restaurant rating and number of ratings
             restaurant_ratings = RestaurantRating.objects.filter(restaurant=restaurant)
             num_ratings = len(restaurant_ratings)
@@ -87,8 +94,41 @@ def rate_restaurant(request, pk):
             return redirect('restaurant-detail', pk=restaurant.pk)
     else:
         form = RestaurantRatingForm()
-    return render(request, 'home/rate_restaurant.html', {'form': form})
+    context = {'form': form, 'restaurant': restaurant}
+    return render(request, 'home/rate_restaurant.html', context)
 
+
+from django.urls import reverse
+
+@login_required
+def rate_item(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    restaurant = item.RestaurantID
+    user = request.user
+    if request.method == 'POST':
+        form = ItemRatingForm(request.POST)
+        if form.is_valid():
+            rating = form.cleaned_data['rating']
+            # Check if user has already rated this item
+            existing_rating = ItemRating.objects.filter(user=user, item=item).first()
+            if existing_rating:
+                existing_rating.rating = rating
+                existing_rating.save()
+            else:
+                rating_obj = ItemRating(user=user, rating=rating, item=item)
+                rating_obj.save()
+            # Update item rating and number of ratings
+            item_ratings = ItemRating.objects.filter(item=item)
+            num_ratings = len(item_ratings)
+            avg_rating = sum(rating.rating for rating in item_ratings) / num_ratings if num_ratings > 0 else 0
+            item.Rating = avg_rating
+            item.NumRatings = num_ratings
+            item.save()
+            return redirect(reverse('restaurant-detail', kwargs={'pk': restaurant.pk}))
+    else:
+        form = ItemRatingForm()
+    context = {'form': form, 'item': item}
+    return render(request, 'home/rate_item.html', context)
 
 def about(request):
         return render(request, 'home/about.html', {'title': 'About'})

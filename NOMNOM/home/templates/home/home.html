@@ -6,7 +6,7 @@
             <div class="media-body">
               <div class="article-metadata">
                 <a class="mr-2" href="#">{{ restaurant.Name }}</a>
-                <small class="text-muted">Rated: {{ restaurant.Rating }}/5 by {{ restaurant.NumRatings }} users.</small>
+                <small class="text-muted">Rated: {{ restaurant.Rating|floatformat:2 }}/5 by {{ restaurant.NumRatings }} users.</small>
                 {% if user.is_authenticated %}
                 <div>
                   <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'rate-restaurant' restaurant.RestaurantID %}">Rate</a>
